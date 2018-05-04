@@ -1,0 +1,2266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.10" />
+<title>REST resources of BellePoubelle API</title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>REST resources of BellePoubelle API</h1>
+<span id="author">1.0.0-SNAPSHOT</span><br />
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_accounts_code"><code>GET rest/v1.0/accounts</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Query Param</strong>: <code>max</code>, <code>java.lang.Integer</code><br />
+<strong>Query Param</strong>: <code>operator</code>, <code>java.lang.Long</code><br />
+<strong>Query Param</strong>: <code>start</code>, <code>java.lang.Integer</code><br />
+<strong>Header Param</strong>: <code>Authorization</code>, <code>java.lang.String</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_200_ok_code"><code>200 OK</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (Collection of <code>fr.bellepoubelle.api.model.Account</code>)<br />
+<code>[{"activated":false,"address":"string","email":"string","enabled":false,"firstName":"string","id":0,"image":0,"lastName":"string","newEmail":"string","operator":0,"password":"string","phone":"string","registeredSince":{},"role":"string","tokenAge":{},"uniqueToken":"string","version":0}]</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_post_rest_v1_0_accounts_code"><code>POST rest/v1.0/accounts</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_2">Request</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code><br />
+<strong>Request Body</strong>: (<code>fr.bellepoubelle.api.model.Account</code>)<br />
+<code>{"activated":false,"address":"string","email":"string","enabled":false,"firstName":"string","id":0,"image":0,"lastName":"string","newEmail":"string","operator":0,"password":"string","phone":"string","registeredSince":{},"role":"string","tokenAge":{},"uniqueToken":"string","version":0}</code><br />
+<strong>Header Param</strong>: <code>Authorization</code>, <code>java.lang.String</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_2">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_201_created_code"><code>201 Created</code></h4>
+<div class="paragraph"><p><strong>Header</strong>: <code>Location</code><br /></p></div>
+</div>
+<div class="sect3">
+<h4 id="_code_400_bad_request_code"><code>400 Bad Request</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_403_forbidden_code"><code>403 Forbidden</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_409_conflict_code"><code>409 Conflict</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_accounts_me_code"><code>GET rest/v1.0/accounts/me</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_3">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Header Param</strong>: <code>Authorization</code>, <code>java.lang.String</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_3">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_200_ok_code_2"><code>200 OK</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (<code>fr.bellepoubelle.api.model.Account</code>)<br />
+<code>{"activated":false,"address":"string","email":"string","enabled":false,"firstName":"string","id":0,"image":0,"lastName":"string","newEmail":"string","operator":0,"password":"string","phone":"string","registeredSince":{},"role":"string","tokenAge":{},"uniqueToken":"string","version":0}</code><br /></p></div>
+</div>
+<div class="sect3">
+<h4 id="_code_401_unauthorized_code"><code>401 Unauthorized</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code"><code>404 Not Found</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_accounts_id_code"><code>GET rest/v1.0/accounts/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_4">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br />
+<strong>Header Param</strong>: <code>Authorization</code>, <code>java.lang.String</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_4">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_200_ok_code_3"><code>200 OK</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (<code>fr.bellepoubelle.api.model.Account</code>)<br />
+<code>{"activated":false,"address":"string","email":"string","enabled":false,"firstName":"string","id":0,"image":0,"lastName":"string","newEmail":"string","operator":0,"password":"string","phone":"string","registeredSince":{},"role":"string","tokenAge":{},"uniqueToken":"string","version":0}</code><br /></p></div>
+</div>
+<div class="sect3">
+<h4 id="_code_401_unauthorized_code_2"><code>401 Unauthorized</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_403_forbidden_code_2"><code>403 Forbidden</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_2"><code>404 Not Found</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_put_rest_v1_0_accounts_id_code"><code>PUT rest/v1.0/accounts/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_5">Request</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code><br />
+<strong>Request Body</strong>: (<code>fr.bellepoubelle.api.model.Account</code>)<br />
+<code>{"activated":false,"address":"string","email":"string","enabled":false,"firstName":"string","id":0,"image":0,"lastName":"string","newEmail":"string","operator":0,"password":"string","phone":"string","registeredSince":{},"role":"string","tokenAge":{},"uniqueToken":"string","version":0}</code><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br />
+<strong>Header Param</strong>: <code>Authorization</code>, <code>java.lang.String</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_5">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_204_no_content_code"><code>204 No Content</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_400_bad_request_code_2"><code>400 Bad Request</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_401_unauthorized_code_3"><code>401 Unauthorized</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_403_forbidden_code_3"><code>403 Forbidden</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_3"><code>404 Not Found</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_409_conflict_code_2"><code>409 Conflict</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (<code>fr.bellepoubelle.api.model.Account</code>)<br />
+<code>{"activated":false,"address":"string","email":"string","enabled":false,"firstName":"string","id":0,"image":0,"lastName":"string","newEmail":"string","operator":0,"password":"string","phone":"string","registeredSince":{},"role":"string","tokenAge":{},"uniqueToken":"string","version":0}</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_delete_rest_v1_0_accounts_id_code"><code>DELETE rest/v1.0/accounts/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_6">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br />
+<strong>Header Param</strong>: <code>Authorization</code>, <code>java.lang.String</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_6">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_204_no_content_code_2"><code>204 No Content</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_403_forbidden_code_4"><code>403 Forbidden</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_4"><code>404 Not Found</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_accounts_id_token_token_code"><code>GET rest/v1.0/accounts/{id}/token/{token}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_7">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br />
+<strong>Path Param</strong>: <code>token</code>, <code>java.lang.String</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_7">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json, text/html</code></p></div>
+<div class="sect3">
+<h4 id="_code_307_temporary_redirect_code"><code>307 Temporary Redirect</code></h4>
+<div class="paragraph"><p><strong>Header</strong>: <code>Location</code><br /></p></div>
+</div>
+<div class="sect3">
+<h4 id="_code_403_forbidden_code_5"><code>403 Forbidden</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_409_conflict_code_3"><code>409 Conflict</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_addresses_code"><code>GET rest/v1.0/addresses</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_8">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Query Param</strong>: <code>max</code>, <code>java.lang.Integer</code><br />
+<strong>Query Param</strong>: <code>start</code>, <code>java.lang.Integer</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_8">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_200_ok_code_4"><code>200 OK</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (Collection of <code>fr.bellepoubelle.api.model.Address</code>)<br />
+<code>[{"commune":"string","id":0,"observation":"string","road":"string","roadNumber":"string","version":0}]</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_post_rest_v1_0_addresses_code"><code>POST rest/v1.0/addresses</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_9">Request</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code><br />
+<strong>Request Body</strong>: (<code>fr.bellepoubelle.api.model.Address</code>)<br />
+<code>{"commune":"string","id":0,"observation":"string","road":"string","roadNumber":"string","version":0}</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_9">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_201_created_code_2"><code>201 Created</code></h4>
+<div class="paragraph"><p><strong>Header</strong>: <code>Location</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_addresses_id_code"><code>GET rest/v1.0/addresses/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_10">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_10">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_200_ok_code_5"><code>200 OK</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (<code>fr.bellepoubelle.api.model.Address</code>)<br />
+<code>{"commune":"string","id":0,"observation":"string","road":"string","roadNumber":"string","version":0}</code><br /></p></div>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_5"><code>404 Not Found</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_put_rest_v1_0_addresses_id_code"><code>PUT rest/v1.0/addresses/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_11">Request</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code><br />
+<strong>Request Body</strong>: (<code>fr.bellepoubelle.api.model.Address</code>)<br />
+<code>{"commune":"string","id":0,"observation":"string","road":"string","roadNumber":"string","version":0}</code><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_11">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_204_no_content_code_3"><code>204 No Content</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_400_bad_request_code_3"><code>400 Bad Request</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_6"><code>404 Not Found</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_409_conflict_code_4"><code>409 Conflict</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (``)<br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_delete_rest_v1_0_addresses_id_code"><code>DELETE rest/v1.0/addresses/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_12">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_12">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_204_no_content_code_4"><code>204 No Content</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_7"><code>404 Not Found</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_alerts_code"><code>GET rest/v1.0/alerts</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_13">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Query Param</strong>: <code>max</code>, <code>java.lang.Integer</code><br />
+<strong>Query Param</strong>: <code>start</code>, <code>java.lang.Integer</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_13">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_200_ok_code_6"><code>200 OK</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (Collection of <code>fr.bellepoubelle.api.model.Alert</code>)<br />
+<code>[{"alertType":0,"checked":false,"created":{},"creator":0,"deleted":false,"favored":false,"id":0,"image":0,"message":"string","poubelle":0,"version":0,"voted":false,"votes":0}]</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_post_rest_v1_0_alerts_code"><code>POST rest/v1.0/alerts</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_14">Request</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code><br />
+<strong>Request Body</strong>: (<code>fr.bellepoubelle.api.model.Alert</code>)<br />
+<code>{"alertType":0,"checked":false,"created":{},"creator":0,"deleted":false,"favored":false,"id":0,"image":0,"message":"string","poubelle":0,"version":0,"voted":false,"votes":0}</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_14">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_201_created_code_3"><code>201 Created</code></h4>
+<div class="paragraph"><p><strong>Header</strong>: <code>Location</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_alerts_voting_code"><code>GET rest/v1.0/alerts/voting</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_15">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Query Param</strong>: <code>max</code>, <code>java.lang.Integer</code><br />
+<strong>Query Param</strong>: <code>start</code>, <code>java.lang.Integer</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_15">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_200_ok_code_7"><code>200 OK</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (Collection of <code>fr.bellepoubelle.api.model.Alert</code>)<br />
+<code>[{"alertType":0,"checked":false,"created":{},"creator":0,"deleted":false,"favored":false,"id":0,"image":0,"message":"string","poubelle":0,"version":0,"voted":false,"votes":0}]</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_alerts_id_code"><code>GET rest/v1.0/alerts/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_16">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_16">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_200_ok_code_8"><code>200 OK</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (<code>fr.bellepoubelle.api.model.Alert</code>)<br />
+<code>{"alertType":0,"checked":false,"created":{},"creator":0,"deleted":false,"favored":false,"id":0,"image":0,"message":"string","poubelle":0,"version":0,"voted":false,"votes":0}</code><br /></p></div>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_8"><code>404 Not Found</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_put_rest_v1_0_alerts_id_code"><code>PUT rest/v1.0/alerts/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_17">Request</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code><br />
+<strong>Request Body</strong>: (<code>fr.bellepoubelle.api.model.Alert</code>)<br />
+<code>{"alertType":0,"checked":false,"created":{},"creator":0,"deleted":false,"favored":false,"id":0,"image":0,"message":"string","poubelle":0,"version":0,"voted":false,"votes":0}</code><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_17">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_204_no_content_code_5"><code>204 No Content</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_400_bad_request_code_4"><code>400 Bad Request</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_9"><code>404 Not Found</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_409_conflict_code_5"><code>409 Conflict</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (<code>fr.bellepoubelle.api.model.Alert</code>)<br />
+<code>{"alertType":0,"checked":false,"created":{},"creator":0,"deleted":false,"favored":false,"id":0,"image":0,"message":"string","poubelle":0,"version":0,"voted":false,"votes":0}</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_delete_rest_v1_0_alerts_id_code"><code>DELETE rest/v1.0/alerts/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_18">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_18">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_204_no_content_code_6"><code>204 No Content</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_10"><code>404 Not Found</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_alerttypes_code"><code>GET rest/v1.0/alerttypes</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_19">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Query Param</strong>: <code>max</code>, <code>java.lang.Integer</code><br />
+<strong>Query Param</strong>: <code>start</code>, <code>java.lang.Integer</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_19">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_200_ok_code_9"><code>200 OK</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (Collection of <code>fr.bellepoubelle.api.model.AlertType</code>)<br />
+<code>[{"description":"string","id":0,"name":"string","version":0}]</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_post_rest_v1_0_alerttypes_code"><code>POST rest/v1.0/alerttypes</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_20">Request</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code><br />
+<strong>Request Body</strong>: (<code>fr.bellepoubelle.api.model.AlertType</code>)<br />
+<code>{"description":"string","id":0,"name":"string","version":0}</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_20">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_201_created_code_4"><code>201 Created</code></h4>
+<div class="paragraph"><p><strong>Header</strong>: <code>Location</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_alerttypes_id_code"><code>GET rest/v1.0/alerttypes/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_21">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_21">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_200_ok_code_10"><code>200 OK</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (<code>fr.bellepoubelle.api.model.AlertType</code>)<br />
+<code>{"description":"string","id":0,"name":"string","version":0}</code><br /></p></div>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_11"><code>404 Not Found</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_put_rest_v1_0_alerttypes_id_code"><code>PUT rest/v1.0/alerttypes/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_22">Request</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code><br />
+<strong>Request Body</strong>: (<code>fr.bellepoubelle.api.model.AlertType</code>)<br />
+<code>{"description":"string","id":0,"name":"string","version":0}</code><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_22">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_204_no_content_code_7"><code>204 No Content</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_400_bad_request_code_5"><code>400 Bad Request</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_12"><code>404 Not Found</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_409_conflict_code_6"><code>409 Conflict</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (<code>fr.bellepoubelle.api.model.AlertType</code>)<br />
+<code>{"description":"string","id":0,"name":"string","version":0}</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_delete_rest_v1_0_alerttypes_id_code"><code>DELETE rest/v1.0/alerttypes/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_23">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_23">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_204_no_content_code_8"><code>204 No Content</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_13"><code>404 Not Found</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_categories_code"><code>GET rest/v1.0/categories</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_24">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Query Param</strong>: <code>max</code>, <code>java.lang.Integer</code><br />
+<strong>Query Param</strong>: <code>start</code>, <code>java.lang.Integer</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_24">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_200_ok_code_11"><code>200 OK</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (Collection of <code>fr.bellepoubelle.api.model.Category</code>)<br />
+<code>[{"description":"string","id":0,"name":"string","version":0}]</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_post_rest_v1_0_categories_code"><code>POST rest/v1.0/categories</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_25">Request</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code><br />
+<strong>Request Body</strong>: (<code>fr.bellepoubelle.api.model.Category</code>)<br />
+<code>{"description":"string","id":0,"name":"string","version":0}</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_25">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_201_created_code_5"><code>201 Created</code></h4>
+<div class="paragraph"><p><strong>Header</strong>: <code>Location</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_categories_id_code"><code>GET rest/v1.0/categories/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_26">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_26">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_200_ok_code_12"><code>200 OK</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (<code>fr.bellepoubelle.api.model.Category</code>)<br />
+<code>{"description":"string","id":0,"name":"string","version":0}</code><br /></p></div>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_14"><code>404 Not Found</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_put_rest_v1_0_categories_id_code"><code>PUT rest/v1.0/categories/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_27">Request</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code><br />
+<strong>Request Body</strong>: (<code>fr.bellepoubelle.api.model.Category</code>)<br />
+<code>{"description":"string","id":0,"name":"string","version":0}</code><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_27">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_204_no_content_code_9"><code>204 No Content</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_400_bad_request_code_6"><code>400 Bad Request</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_15"><code>404 Not Found</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_409_conflict_code_7"><code>409 Conflict</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (<code>fr.bellepoubelle.api.model.Category</code>)<br />
+<code>{"description":"string","id":0,"name":"string","version":0}</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_delete_rest_v1_0_categories_id_code"><code>DELETE rest/v1.0/categories/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_28">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_28">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_204_no_content_code_10"><code>204 No Content</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_16"><code>404 Not Found</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_devices_code"><code>GET rest/v1.0/devices</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_29">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Query Param</strong>: <code>max</code>, <code>java.lang.Integer</code><br />
+<strong>Query Param</strong>: <code>start</code>, <code>java.lang.Integer</code><br />
+<strong>Header Param</strong>: <code>Authorization</code>, <code>java.lang.String</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_29">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_200_ok_code_13"><code>200 OK</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (Collection of <code>fr.bellepoubelle.api.model.Device</code>)<br />
+<code>[{"activated":false,"android":false,"id":0,"owner":0,"token":"string","version":0}]</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_post_rest_v1_0_devices_code"><code>POST rest/v1.0/devices</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_30">Request</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code><br />
+<strong>Request Body</strong>: (<code>fr.bellepoubelle.api.model.Device</code>)<br />
+<code>{"activated":false,"android":false,"id":0,"owner":0,"token":"string","version":0}</code><br />
+<strong>Header Param</strong>: <code>Authorization</code>, <code>java.lang.String</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_30">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_201_created_code_6"><code>201 Created</code></h4>
+<div class="paragraph"><p><strong>Header</strong>: <code>Location</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_put_rest_v1_0_devices_id_code"><code>PUT rest/v1.0/devices/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_31">Request</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code><br />
+<strong>Request Body</strong>: (<code>fr.bellepoubelle.api.model.Device</code>)<br />
+<code>{"activated":false,"android":false,"id":0,"owner":0,"token":"string","version":0}</code><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br />
+<strong>Header Param</strong>: <code>Authorization</code>, <code>java.lang.String</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_31">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_204_no_content_code_11"><code>204 No Content</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_400_bad_request_code_7"><code>400 Bad Request</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_17"><code>404 Not Found</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_409_conflict_code_8"><code>409 Conflict</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (``)<br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_delete_rest_v1_0_devices_id_code"><code>DELETE rest/v1.0/devices/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_32">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br />
+<strong>Header Param</strong>: <code>Authorization</code>, <code>java.lang.String</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_32">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_204_no_content_code_12"><code>204 No Content</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_401_unauthorized_code_4"><code>401 Unauthorized</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_403_forbidden_code_6"><code>403 Forbidden</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_18"><code>404 Not Found</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_devices_token_code"><code>GET rest/v1.0/devices/{token}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_33">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Path Param</strong>: <code>token</code>, <code>java.lang.String</code><br />
+<strong>Header Param</strong>: <code>Authorization</code>, <code>java.lang.String</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_33">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_200_ok_code_14"><code>200 OK</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (<code>fr.bellepoubelle.api.model.Device</code>)<br />
+<code>{"activated":false,"android":false,"id":0,"owner":0,"token":"string","version":0}</code><br /></p></div>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_19"><code>404 Not Found</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_fillings_code"><code>GET rest/v1.0/fillings</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_34">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Query Param</strong>: <code>max</code>, <code>java.lang.Integer</code><br />
+<strong>Query Param</strong>: <code>start</code>, <code>java.lang.Integer</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_34">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_200_ok_code_15"><code>200 OK</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (Collection of <code>fr.bellepoubelle.api.model.Filling</code>)<br />
+<code>[{"fillingLevel":0,"id":0,"poubelle":0,"time":{},"version":0}]</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_post_rest_v1_0_fillings_code"><code>POST rest/v1.0/fillings</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_35">Request</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code><br />
+<strong>Request Body</strong>: (<code>fr.bellepoubelle.api.model.Filling</code>)<br />
+<code>{"fillingLevel":0,"id":0,"poubelle":0,"time":{},"version":0}</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_35">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_201_created_code_7"><code>201 Created</code></h4>
+<div class="paragraph"><p><strong>Header</strong>: <code>Location</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_fillings_id_code"><code>GET rest/v1.0/fillings/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_36">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_36">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_200_ok_code_16"><code>200 OK</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (<code>fr.bellepoubelle.api.model.Filling</code>)<br />
+<code>{"fillingLevel":0,"id":0,"poubelle":0,"time":{},"version":0}</code><br /></p></div>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_20"><code>404 Not Found</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_put_rest_v1_0_fillings_id_code"><code>PUT rest/v1.0/fillings/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_37">Request</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code><br />
+<strong>Request Body</strong>: (<code>fr.bellepoubelle.api.model.Filling</code>)<br />
+<code>{"fillingLevel":0,"id":0,"poubelle":0,"time":{},"version":0}</code><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_37">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_204_no_content_code_13"><code>204 No Content</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_400_bad_request_code_8"><code>400 Bad Request</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_21"><code>404 Not Found</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_409_conflict_code_9"><code>409 Conflict</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (<code>fr.bellepoubelle.api.model.Filling</code>)<br />
+<code>{"fillingLevel":0,"id":0,"poubelle":0,"time":{},"version":0}</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_delete_rest_v1_0_fillings_id_code"><code>DELETE rest/v1.0/fillings/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_38">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_38">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_204_no_content_code_14"><code>204 No Content</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_22"><code>404 Not Found</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_images_code"><code>GET rest/v1.0/images</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_39">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Query Param</strong>: <code>max</code>, <code>java.lang.Integer</code><br />
+<strong>Query Param</strong>: <code>start</code>, <code>java.lang.Integer</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_39">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_200_ok_code_17"><code>200 OK</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (Collection of <code>fr.bellepoubelle.api.model.Image</code>)<br />
+<code>[{"date":{},"enabled":false,"file":{}],"id":0,"version":0}</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_post_rest_v1_0_images_code"><code>POST rest/v1.0/images</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_40">Request</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code><br />
+<strong>Request Body</strong>: (<code>fr.bellepoubelle.api.model.Image</code>)<br />
+<code>{"date":{},"enabled":false,"file":{},"id":0,"version":0}</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_40">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_201_created_code_8"><code>201 Created</code></h4>
+<div class="paragraph"><p><strong>Header</strong>: <code>Location</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_images_id_code"><code>GET rest/v1.0/images/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_41">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_41">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_200_ok_code_18"><code>200 OK</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (<code>fr.bellepoubelle.api.model.Image</code>)<br />
+<code>{"date":{},"enabled":false,"file":{},"id":0,"version":0}</code><br /></p></div>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_23"><code>404 Not Found</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_put_rest_v1_0_images_id_code"><code>PUT rest/v1.0/images/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_42">Request</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code><br />
+<strong>Request Body</strong>: (<code>fr.bellepoubelle.api.model.Image</code>)<br />
+<code>{"date":{},"enabled":false,"file":{},"id":0,"version":0}</code><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_42">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_204_no_content_code_15"><code>204 No Content</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_400_bad_request_code_9"><code>400 Bad Request</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_24"><code>404 Not Found</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_409_conflict_code_10"><code>409 Conflict</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (<code>fr.bellepoubelle.api.model.Image</code>)<br />
+<code>{"date":{},"enabled":false,"file":{},"id":0,"version":0}</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_delete_rest_v1_0_images_id_code"><code>DELETE rest/v1.0/images/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_43">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_43">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_204_no_content_code_16"><code>204 No Content</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_25"><code>404 Not Found</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_operators_code"><code>GET rest/v1.0/operators</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_44">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Query Param</strong>: <code>max</code>, <code>java.lang.Integer</code><br />
+<strong>Query Param</strong>: <code>start</code>, <code>java.lang.Integer</code><br />
+<strong>Header Param</strong>: <code>Authorization</code>, <code>java.lang.String</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_44">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_200_ok_code_19"><code>200 OK</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (Collection of <code>fr.bellepoubelle.api.model.Operator</code>)<br />
+<code>[{"description":"string","email":"string","enabled":false,"id":0,"logo":0,"name":"string","version":0}]</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_post_rest_v1_0_operators_code"><code>POST rest/v1.0/operators</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_45">Request</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code><br />
+<strong>Request Body</strong>: (<code>fr.bellepoubelle.api.model.Operator</code>)<br />
+<code>{"description":"string","email":"string","enabled":false,"id":0,"logo":0,"name":"string","version":0}</code><br />
+<strong>Header Param</strong>: <code>Authorization</code>, <code>java.lang.String</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_45">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_201_created_code_9"><code>201 Created</code></h4>
+<div class="paragraph"><p><strong>Header</strong>: <code>Location</code><br /></p></div>
+</div>
+<div class="sect3">
+<h4 id="_code_401_unauthorized_code_5"><code>401 Unauthorized</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_403_forbidden_code_7"><code>403 Forbidden</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_operators_id_code"><code>GET rest/v1.0/operators/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_46">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br />
+<strong>Header Param</strong>: <code>Authorization</code>, <code>java.lang.String</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_46">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_200_ok_code_20"><code>200 OK</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (<code>fr.bellepoubelle.api.model.Operator</code>)<br />
+<code>{"description":"string","email":"string","enabled":false,"id":0,"logo":0,"name":"string","version":0}</code><br /></p></div>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_26"><code>404 Not Found</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_put_rest_v1_0_operators_id_code"><code>PUT rest/v1.0/operators/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_47">Request</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code><br />
+<strong>Request Body</strong>: (<code>fr.bellepoubelle.api.model.Operator</code>)<br />
+<code>{"description":"string","email":"string","enabled":false,"id":0,"logo":0,"name":"string","version":0}</code><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br />
+<strong>Header Param</strong>: <code>Authorization</code>, <code>java.lang.String</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_47">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_204_no_content_code_17"><code>204 No Content</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_400_bad_request_code_10"><code>400 Bad Request</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_401_unauthorized_code_6"><code>401 Unauthorized</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_403_forbidden_code_8"><code>403 Forbidden</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_27"><code>404 Not Found</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_409_conflict_code_11"><code>409 Conflict</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (<code>fr.bellepoubelle.api.model.Operator</code>)<br />
+<code>{"description":"string","email":"string","enabled":false,"id":0,"logo":0,"name":"string","version":0}</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_delete_rest_v1_0_operators_id_code"><code>DELETE rest/v1.0/operators/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_48">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br />
+<strong>Header Param</strong>: <code>Authorization</code>, <code>java.lang.String</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_48">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_204_no_content_code_18"><code>204 No Content</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_401_unauthorized_code_7"><code>401 Unauthorized</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_403_forbidden_code_9"><code>403 Forbidden</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_28"><code>404 Not Found</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_posts_code"><code>GET rest/v1.0/posts</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_49">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Query Param</strong>: <code>max</code>, <code>java.lang.Integer</code><br />
+<strong>Query Param</strong>: <code>start</code>, <code>java.lang.Integer</code><br />
+<strong>Header Param</strong>: <code>Authorization</code>, <code>java.lang.String</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_49">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_200_ok_code_21"><code>200 OK</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (Collection of <code>fr.bellepoubelle.api.model.Post</code>)<br />
+<code>[{"author":0,"content":"string","date":{},"enabled":false,"id":0,"image":0,"operator":0,"title":"string","version":0}]</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_post_rest_v1_0_posts_code"><code>POST rest/v1.0/posts</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_50">Request</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code><br />
+<strong>Request Body</strong>: (<code>fr.bellepoubelle.api.model.Post</code>)<br />
+<code>{"author":0,"content":"string","date":{},"enabled":false,"id":0,"image":0,"operator":0,"title":"string","version":0}</code><br />
+<strong>Header Param</strong>: <code>Authorization</code>, <code>java.lang.String</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_50">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_201_created_code_10"><code>201 Created</code></h4>
+<div class="paragraph"><p><strong>Header</strong>: <code>Location</code><br /></p></div>
+</div>
+<div class="sect3">
+<h4 id="_code_401_unauthorized_code_8"><code>401 Unauthorized</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_403_forbidden_code_10"><code>403 Forbidden</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_posts_id_code"><code>GET rest/v1.0/posts/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_51">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br />
+<strong>Header Param</strong>: <code>Authorization</code>, <code>java.lang.String</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_51">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_200_ok_code_22"><code>200 OK</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (<code>fr.bellepoubelle.api.model.Post</code>)<br />
+<code>{"author":0,"content":"string","date":{},"enabled":false,"id":0,"image":0,"operator":0,"title":"string","version":0}</code><br /></p></div>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_29"><code>404 Not Found</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_put_rest_v1_0_posts_id_code"><code>PUT rest/v1.0/posts/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_52">Request</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code><br />
+<strong>Request Body</strong>: (<code>fr.bellepoubelle.api.model.Post</code>)<br />
+<code>{"author":0,"content":"string","date":{},"enabled":false,"id":0,"image":0,"operator":0,"title":"string","version":0}</code><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br />
+<strong>Header Param</strong>: <code>Authorization</code>, <code>java.lang.String</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_52">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_204_no_content_code_19"><code>204 No Content</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_400_bad_request_code_11"><code>400 Bad Request</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_401_unauthorized_code_9"><code>401 Unauthorized</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_403_forbidden_code_11"><code>403 Forbidden</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_30"><code>404 Not Found</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_409_conflict_code_12"><code>409 Conflict</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (<code>fr.bellepoubelle.api.model.Post</code>)<br />
+<code>{"author":0,"content":"string","date":{},"enabled":false,"id":0,"image":0,"operator":0,"title":"string","version":0}</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_delete_rest_v1_0_posts_id_code"><code>DELETE rest/v1.0/posts/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_53">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br />
+<strong>Header Param</strong>: <code>Authorization</code>, <code>java.lang.String</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_53">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_204_no_content_code_20"><code>204 No Content</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_401_unauthorized_code_10"><code>401 Unauthorized</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_403_forbidden_code_12"><code>403 Forbidden</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_31"><code>404 Not Found</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_poubelles_code"><code>GET rest/v1.0/poubelles</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_54">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Query Param</strong>: <code>max</code>, <code>java.lang.Integer</code><br />
+<strong>Query Param</strong>: <code>start</code>, <code>java.lang.Integer</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_54">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_200_ok_code_23"><code>200 OK</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (Collection of <code>fr.bellepoubelle.api.model.Poubelle</code>)<br />
+<code>[{"address":0,"category":0,"codeInsee":0,"fillingLevel":0,"id":0,"latitude":0.0,"longitude":0.0,"version":0}]</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_post_rest_v1_0_poubelles_code"><code>POST rest/v1.0/poubelles</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_55">Request</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code><br />
+<strong>Request Body</strong>: (<code>fr.bellepoubelle.api.model.Poubelle</code>)<br />
+<code>{"address":0,"category":0,"codeInsee":0,"fillingLevel":0,"id":0,"latitude":0.0,"longitude":0.0,"version":0}</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_55">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_201_created_code_11"><code>201 Created</code></h4>
+<div class="paragraph"><p><strong>Header</strong>: <code>Location</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_poubelles_id_code"><code>GET rest/v1.0/poubelles/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_56">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_56">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_200_ok_code_24"><code>200 OK</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (<code>fr.bellepoubelle.api.model.Poubelle</code>)<br />
+<code>{"address":0,"category":0,"codeInsee":0,"fillingLevel":0,"id":0,"latitude":0.0,"longitude":0.0,"version":0}</code><br /></p></div>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_32"><code>404 Not Found</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_put_rest_v1_0_poubelles_id_code"><code>PUT rest/v1.0/poubelles/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_57">Request</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code><br />
+<strong>Request Body</strong>: (<code>fr.bellepoubelle.api.model.Poubelle</code>)<br />
+<code>{"address":0,"category":0,"codeInsee":0,"fillingLevel":0,"id":0,"latitude":0.0,"longitude":0.0,"version":0}</code><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_57">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_204_no_content_code_21"><code>204 No Content</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_400_bad_request_code_12"><code>400 Bad Request</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_33"><code>404 Not Found</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_409_conflict_code_13"><code>409 Conflict</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (<code>fr.bellepoubelle.api.model.Poubelle</code>)<br />
+<code>{"address":0,"category":0,"codeInsee":0,"fillingLevel":0,"id":0,"latitude":0.0,"longitude":0.0,"version":0}</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_delete_rest_v1_0_poubelles_id_code"><code>DELETE rest/v1.0/poubelles/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_58">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_58">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_204_no_content_code_22"><code>204 No Content</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_34"><code>404 Not Found</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_poubelles_id_fillinglevel_fillinglevel_code"><code>GET rest/v1.0/poubelles/{id}/fillingLevel/{fillingLevel}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_59">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Path Param</strong>: <code>fillingLevel</code>, <code>int</code><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_59">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json, text/html</code></p></div>
+<div class="sect3">
+<h4 id="_code_204_no_content_code_23"><code>204 No Content</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_400_bad_request_code_13"><code>400 Bad Request</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_35"><code>404 Not Found</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_409_conflict_code_14"><code>409 Conflict</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (<code>fr.bellepoubelle.api.model.Poubelle</code>)<br />
+<code>{"address":0,"category":0,"codeInsee":0,"fillingLevel":0,"id":0,"latitude":0.0,"longitude":0.0,"version":0}</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_sensors_code"><code>GET rest/v1.0/sensors</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_60">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Query Param</strong>: <code>max</code>, <code>java.lang.Integer</code><br />
+<strong>Query Param</strong>: <code>start</code>, <code>java.lang.Integer</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_60">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_200_ok_code_25"><code>200 OK</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (Collection of <code>fr.bellepoubelle.api.model.Sensor</code>)<br />
+<code>[{"id":0,"password":"string","poubelle":0,"reference":"string","version":0}]</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_post_rest_v1_0_sensors_code"><code>POST rest/v1.0/sensors</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_61">Request</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code><br />
+<strong>Request Body</strong>: (<code>fr.bellepoubelle.api.model.Sensor</code>)<br />
+<code>{"id":0,"password":"string","poubelle":0,"reference":"string","version":0}</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_61">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_201_created_code_12"><code>201 Created</code></h4>
+<div class="paragraph"><p><strong>Header</strong>: <code>Location</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_get_rest_v1_0_sensors_id_code"><code>GET rest/v1.0/sensors/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_62">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_62">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code></p></div>
+<div class="sect3">
+<h4 id="_code_200_ok_code_26"><code>200 OK</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (<code>fr.bellepoubelle.api.model.Sensor</code>)<br />
+<code>{"id":0,"password":"string","poubelle":0,"reference":"string","version":0}</code><br /></p></div>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_36"><code>404 Not Found</code></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_put_rest_v1_0_sensors_id_code"><code>PUT rest/v1.0/sensors/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_63">Request</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>application/json</code><br />
+<strong>Request Body</strong>: (<code>fr.bellepoubelle.api.model.Sensor</code>)<br />
+<code>{"id":0,"password":"string","poubelle":0,"reference":"string","version":0}</code><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_63">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_204_no_content_code_24"><code>204 No Content</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_400_bad_request_code_14"><code>400 Bad Request</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_37"><code>404 Not Found</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_409_conflict_code_15"><code>409 Conflict</code></h4>
+<div class="paragraph"><p><strong>Response Body</strong>: (<code>fr.bellepoubelle.api.model.Sensor</code>)<br />
+<code>{"id":0,"password":"string","poubelle":0,"reference":"string","version":0}</code><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_delete_rest_v1_0_sensors_id_code"><code>DELETE rest/v1.0/sensors/{id}</code></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_64">Request</h3>
+<div class="paragraph"><p><em>No body</em><br />
+<strong>Path Param</strong>: <code>id</code>, <code>java.lang.Long</code><br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_response_64">Response</h3>
+<div class="paragraph"><p><strong>Content-Type</strong>: <code>\*/*</code></p></div>
+<div class="sect3">
+<h4 id="_code_204_no_content_code_25"><code>204 No Content</code></h4>
+</div>
+<div class="sect3">
+<h4 id="_code_404_not_found_code_38"><code>404 Not Found</code></h4>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated
+ 2018-05-03 20:09:37 CEST
+</div>
+</div>
+</body>
+</html>

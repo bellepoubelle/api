@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.1"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="api-persistence-unit"
+		transaction-type="JTA">
+		<description>Forge Persistence Unit</description>
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>java:/PostgresDS</jta-data-source>
+		<class>fr.bellepoubelle.api.model.Account</class>
+		<class>fr.bellepoubelle.api.model.Address</class>
+		<class>fr.bellepoubelle.api.model.Alert</class>
+		<class>fr.bellepoubelle.api.model.AlertType</class>
+		<class>fr.bellepoubelle.api.model.Category</class>
+		<class>fr.bellepoubelle.api.model.Device</class>
+		<class>fr.bellepoubelle.api.model.Filling</class>
+		<class>fr.bellepoubelle.api.model.Image</class>
+		<class>fr.bellepoubelle.api.model.Operator</class>
+		<class>fr.bellepoubelle.api.model.Post</class>
+		<class>fr.bellepoubelle.api.model.Poubelle</class>
+		<class>fr.bellepoubelle.api.model.Sensor</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.transaction.flush_before_completion"
+				value="true" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="validate" /> <!-- DEVELOPMENT MODUS: create-drop PRODUCTION MODUS: validate -->
+		</properties>
+	</persistence-unit>
+</persistence>
